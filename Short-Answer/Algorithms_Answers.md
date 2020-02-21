@@ -5,10 +5,10 @@
 a) O(n) because we go through all the inputs once in a loop.
 
 
-b)
+b) O(n^n) because you have two loops in the code.
 
 
-c)
+c) O(n) because it's a recursion and is going down towards its base case.
 
 ## Exercise II
 
