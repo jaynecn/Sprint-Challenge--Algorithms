@@ -2,7 +2,7 @@
 
 ## Exercise I
 
-a)
+a) O(n) because we go through all the inputs once in a loop.
 
 
 b)
