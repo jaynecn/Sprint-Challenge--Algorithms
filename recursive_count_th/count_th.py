@@ -8,7 +8,7 @@ def count_th(word):
     word.lower()
     
     # base case
-    if len(word) == 2:
+    if len(word) < 2:
         return 0
     
     elif word[0] == 't' and word[1] == 'h':
@@ -19,5 +19,5 @@ def count_th(word):
     
     pass
 
-print(count_th('oothotho'))
+print(count_th('ooothoooth'))
 
