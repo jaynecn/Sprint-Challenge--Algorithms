@@ -96,8 +96,42 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # robot is at the start of the list
+        # robot at index 0, has no items
+        
+        # the light is used to know when the robot should stop the processing of the function
+        
+        while self.light_is_on() is False:
+            # put the light on
+            self.set_light_on()
+
+            while self.can_move_right():
+            # if robot can move right, move right
+            # check if any items have nothing
+                if self.compare_item() == None:
+                    self.swap_item()
+                    self.move_right()
+                # if the card held is less, go back to previous position and swap.
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                # if card held is greater, swap the items to place it back, then go to left to return the other item.
+                elif self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_off()
+                # if they are equal, put back then move right
+                elif self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+
+            while self.can_move_left() and self.light_is_on() is False:
+                self.move_left()
+                    
 
 
 if __name__ == "__main__":
