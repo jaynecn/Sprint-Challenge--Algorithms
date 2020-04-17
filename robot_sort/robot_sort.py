@@ -123,7 +123,7 @@ class SortingRobot:
                     self.swap_item()
                     self.move_right()
                     self.set_light_off()
-                    # If the held item's value is equal to item in front of robot
+                # if they are equal, put back then move right
                 elif self.compare_item() == 0:
                     self.move_left()
                     self.swap_item()
