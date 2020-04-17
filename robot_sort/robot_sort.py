@@ -96,41 +96,41 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # the light is used to know when the robot should stop the processing of the function
-        # put the light on
-        self.set_light_on()
-        # print("Light on?:", self.light_is_on())
-        
         # robot is at the start of the list
         # robot at index 0, has no items
-        # print("Can move left?", self.can_move_left())
-        # print("Can move right?", self.can_move_right())              
         
-        # while the light is on
-        while self.light_is_on():
-            # if robot can move right, move right
+        # the light is used to know when the robot should stop the processing of the function
+        
+        while self.light_is_on() is False:
+            # put the light on
+            self.set_light_on()
+
             while self.can_move_right():
-                # because robot has nothing, we have to swap first to get an item
-                self.swap_item()
-                # print(robot._list)
-                self.move_right()
-                if self.compare_item == 1:
+            # if robot can move right, move right
+            # check if any items have nothing
+                if self.compare_item() == None:
+                    self.swap_item()
+                    self.move_right()
+                # if the card held is less, go back to previous position and swap.
+                if self.compare_item() == -1:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                # if card held is greater, swap the items to place it back, then go to left to return the other item.
+                elif self.compare_item() == 1:
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
                     self.move_right()
                     self.set_light_off()
-                else:
-                    # go to the left and swap back
+                    # If the held item's value is equal to item in front of robot
+                elif self.compare_item() == 0:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-                    self.set_light_off()
-            
-            while self.can_move_left():
-                # go back to the beginning to start again 
+
+            while self.can_move_left() and self.light_is_on() is False:
                 self.move_left()
-        
                     
 
 
