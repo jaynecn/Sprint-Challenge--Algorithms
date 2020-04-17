@@ -96,8 +96,29 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # the light is used to know when the robot should stop the processing of the function
+        # put the light on
+        self.set_light_on()
+        print("Light on?:", self.light_is_on())
+        
+        # robot is at the start of the list
+        # robot at index 0, has no items
+        print("Can move left?", self.can_move_left())
+        print("Can move right?", self.can_move_right())              
+        
+        # while the light is on
+        while self.light_is_on():
+            # if robot can move right, move right
+            while self.can_move_right():
+                # because robot has nothing, we have to swap first to get an item
+                self.swap_item()
+                self.move_right()
+                print(self.compare_item())
+        
+        
+        # robot swaps items
+        
+        # 
 
 
 if __name__ == "__main__":

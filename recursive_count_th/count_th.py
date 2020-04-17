@@ -20,6 +20,6 @@ def count_th(word):
     else:
         return count_th(word[1:])   
 
-print(count_th('oooothoooooth'))
+print(count_th('ooooTHoooooth'))
 print(count_th('aalkjdlkjlkjthljljljljthljljljljthj'))
 print(count_th(12))
